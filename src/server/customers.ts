@@ -6,7 +6,7 @@ export async function getCustomers() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const db: any = await getAppDB()
 
-    const customers =  await
+    const customers = await
         db
             .collection("customer")
             .find({})
@@ -14,5 +14,15 @@ export async function getCustomers() {
     console.log(customers)
 
     return customers;
+
+}
+
+export async function getCustomersWithAPI() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+    const response = await fetch("http://localhost:8080/customers")
+
+    return await response.json();
+
 
 }

@@ -1,10 +1,13 @@
 'use server'
-import {getCustomers} from "@/server/customers";
+import {getCustomersWithAPI} from "@/server/customers";
 
 export default async function CustomerPage() {
 
 
-    const customers = await getCustomers()
+    // const customers = await getCustomers()
+
+    const customers = await getCustomersWithAPI()
+    console.log(customers)
 
     return (
 
@@ -19,15 +22,19 @@ export default async function CustomerPage() {
                 <div className='col-3'>Col 3</div>
             </div>
 
+            {/*<button onClick={() => {*/}
+            {/*    console.log("Button clicked...")*/}
+            {/*}}></button>*/}
+            <a href={"/server-side/customers"}>Refresh</a>
 
             <div className="p-4">
                 {/* PrimeFlex grid system */}
                 <div className="flex flex-column">
                     {customers.map((customer:any) => (
-                        <div key={customer._id} className="col-12 md:col-6 lg:col-4">
+                        <div key={customer.id} className="col-12 md:col-6 lg:col-4">
                             <div className="surface-card  border-round">
                                 <div className="">
-                                    <span className="font-medium mr-3">{customer._id}</span>
+                                    <span className="font-medium mr-3">{customer.id}</span>
                                     <span>{customer.name}</span>
                                 </div>
                             </div>
