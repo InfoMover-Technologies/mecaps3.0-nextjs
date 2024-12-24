@@ -1,5 +1,7 @@
 import type {Metadata} from "next";
 import "./globals.css";
+import 'primeflex/primeflex.scss';
+
 
 
 export const metadata: Metadata = {
