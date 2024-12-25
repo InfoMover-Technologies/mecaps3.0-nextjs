@@ -1,7 +1,19 @@
 import type {Metadata} from "next";
-import "./globals.css";
-import 'primeflex/primeflex.scss';
+// import "./globals.css";
 
+import 'primereact/resources/primereact.css';
+import 'primereact/resources/themes/saga-blue/theme.css';
+
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.min.css';
+
+
+
+
+
+import {PrimeReactProvider} from 'primereact/api';
+
+// import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 
 export const metadata: Metadata = {
@@ -17,7 +29,9 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body style={{"margin": "100px"}}>
-        {children}
+        <PrimeReactProvider >
+            {children}
+        </PrimeReactProvider>
         </body>
         </html>
     );
