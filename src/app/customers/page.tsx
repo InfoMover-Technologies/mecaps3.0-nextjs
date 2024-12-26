@@ -50,7 +50,7 @@ export default function CustomerPage() {
                     >
 
                         {({handleChange, values}) => (
-                            <Form>
+                            <Form className="p-fluid">
                                 <div className="field">
                                     <label htmlFor="title">ID</label>
                                     <Field name="id">
