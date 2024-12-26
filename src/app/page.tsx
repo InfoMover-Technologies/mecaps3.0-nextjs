@@ -8,7 +8,7 @@ export default function HomePage() {
             <hr/>
             <div style={{marginTop: "10px" }}>
 
-                <a href={"client-side/customers"}>Customers</a>
+                <a href={"/customers"}>Customers</a>
             </div>
         </div>
     );
