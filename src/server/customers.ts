@@ -30,15 +30,25 @@ export async function getCustomersWithAPI() {
 export async function createCustomer(customer:any) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
-    const response = await fetch("http://localhost:8080/customers", {
-        method: "post",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(customer)
-    })
+    try {
+        const response = await fetch("http://localhost:8080/customers", {
+            method: "post",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(customer)
+        })
 
-    return await response.json();
+
+        const result =  await response.json();
+        console.log(result)
+        if (result.status) {
+            throw Error(result.message)
+        }
+        return result
+    } catch (error:any) {
+        throw Error(error.message || "Error in creating customer")
+    }
 
 
 }
