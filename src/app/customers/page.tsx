@@ -8,6 +8,8 @@ import {Dialog} from "primereact/dialog";
 import {Field, Form, Formik} from "formik";
 import {InputText} from "primereact/inputtext";
 
+
+
 export default function CustomerPage() {
 
     const [customers, setCustomers] = useState<any[]>([])
@@ -42,8 +44,8 @@ export default function CustomerPage() {
 
                     <Formik
                         initialValues={initialValues}
-                        onSubmit={() => {
-                            console.log("the form is submitted...")
+                        onSubmit={(data: any) => {
+                            console.log(data)
                         }}
                     >
 
@@ -78,6 +80,13 @@ export default function CustomerPage() {
                                     </Field>
                                 </div>
 
+                                <Button
+                                    className=" bg-primary-500"
+
+                                    label={"Save"}
+                                    icon="pi pi-save"
+                                    type="submit"
+                                />
 
                             </Form>
                         )}
