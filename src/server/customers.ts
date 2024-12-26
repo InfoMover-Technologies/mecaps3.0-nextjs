@@ -26,3 +26,19 @@ export async function getCustomersWithAPI() {
 
 
 }
+
+export async function createCustomer(customer:any) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+    const response = await fetch("http://localhost:8080/customers", {
+        method: "post",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(customer)
+    })
+
+    return await response.json();
+
+
+}

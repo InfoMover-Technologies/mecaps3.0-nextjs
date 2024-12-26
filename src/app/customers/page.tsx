@@ -1,6 +1,6 @@
 'use client'
 import {useEffect, useState} from "react";
-import {getCustomersWithAPI} from "@/server/customers";
+import {createCustomer, getCustomersWithAPI} from "@/server/customers";
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import {Button} from "primereact/button";
@@ -27,6 +27,12 @@ export default function CustomerPage() {
         setCustomers(_customers)
     }
 
+    const asyncCreateCustomer = async(customer:any) => {
+        const _response = await createCustomer(customer)
+        console.log(_response)
+
+    }
+
     useEffect(() => {
         asyncGetCustomers()
     }, [])
@@ -41,11 +47,13 @@ export default function CustomerPage() {
             }}
                     visible={showCreateDialog}>
                 <div>
+                    <h3>Creat Customer</h3>
 
                     <Formik
                         initialValues={initialValues}
                         onSubmit={(data: any) => {
                             console.log(data)
+                            asyncCreateCustomer(data)
                         }}
                     >
 
